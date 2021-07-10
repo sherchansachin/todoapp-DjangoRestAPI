@@ -2,12 +2,26 @@ import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { Modal, Button } from "react-bootstrap";
 
-const AddTask = () => {
+const AddTask = ({ addTodo }) => {
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [title, setTitle] = useState('')
+    const [body, setBody] = useState('')
+
+    const addTodoHandler = e =>{
+        e.preventDefault()
+        handleClose();
+        addTodo({
+            title,
+            body,
+            completed: false,
+        })
+    }
+
     return ( 
         <>
             <Container>
@@ -17,7 +31,7 @@ const AddTask = () => {
                 </div>
             </Container>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
                 <Modal.Title>Add a New Todo</Modal.Title>
                 </Modal.Header>
@@ -25,17 +39,17 @@ const AddTask = () => {
                     <form>
                         <div className = 'form-group'>
                             <label>To do Title</label>
-                            <input type='text' className='form-control'/>
+                            <input type='text' className='form-control' onChange ={e => setTitle(e.target.value)}/>
                         </div>
 
                         <div className = 'form-group'>
                             <label>Description</label>
-                            <textarea rows='4' className='form-control'></textarea>
+                            <textarea rows='4' className='form-control' onChange ={e => setBody(e.target.value)}></textarea>
                         </div>
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={addTodoHandler}>
                     Add todo
                 </Button>
                 <Button variant="secondary" onClick={handleClose}>
