@@ -10,36 +10,23 @@ img{
 }
 
 .section-1{
+    font-family: 'Mulish', sans-serif;
     padding-top: 55px;
     background-color: floralwhite;
  }
 
-.container{
-     margin-left: 0;
-     margin-right: 0;
+ .tasks{
+    font-family: 'Noto Sans JP', sans-serif;
  }
 
-
-.todo-notes{
-    display: grid;
-    grid-gap: 3rem;
-    box-sizing: border-box;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.todo-list{
+    font-family: 'Nunito', sans-serif;
+    padding: 20px;
+    max-width: 680px;
+    margin:auto;
+    border-bottom: 1px solid grey;
 }
- 
- .todo-info{
-    padding: 1rem;
-    box-shadow: 0px 3px 50px #f0fce2;
-    
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    
- }
 
- .status{
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
- }
+svg:hover{
+    cursor: pointer;
+}
